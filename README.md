@@ -18,7 +18,10 @@ Currently configured for Spanish feedback generation. The following should be ch
 ```bash
 pip install -r requirements.txt
 python3 -m spacy download es
-pip3 install errant
+git clone https://github.com/ssdavidson/errant_sp_3.git
+cd errant_sp_3
+pip install -e .
+python3 -m spacy download es_core_news_md
 ```
 
 ### ML Model
