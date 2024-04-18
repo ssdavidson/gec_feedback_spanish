@@ -22,7 +22,7 @@ from nltk import sent_tokenize
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
 #Remove before publishing
-OPENAI_API_KEY='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'
+OPENAI_API_KEY='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'
 
 nlp = spacy.load('es_core_news_md')
 annotator = errant.load('es', nlp)
@@ -120,8 +120,7 @@ def rank_errors(edit_list):
     return out_edits
 
 
-def generate_feedback(edit_list, l1, level):
-    errors_to_present = rank_errors(edit_list)
+def generate_feedback(errors_to_present, l1, level):
     out_dict = {}
     error_count = 0
     
@@ -294,7 +293,7 @@ def generate_feedback(edit_list, l1, level):
             out_dict['edit_' + str(error_count)] = {"response_short": '', "llm_explanation": llm_explanation, "line_1":'', "response_1":{'correct':'', 'incorrect':''}, 'response_2':{'correct':'', 'incorrect':''}}
 
 
-    json_out = json.dumps(out_dict)
+    json_out = json.dumps(out_dict, indent=4)
 
     return json_out
 
