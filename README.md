@@ -26,4 +26,4 @@ python3 -m spacy download es_core_news_md
 
 ### ML Model
 
-Decompress the `.tar.gz` file ([Download Link](https://drive.google.com/file/d/1-tuD6I0uhvBERDIY5UFIccF2drzk6XJ6/view)) and put folder `eracond_T5_model` in the workspace.
+Decompress the `.tar.gz` file ([Download Link](https://drive.google.com/file/d/1iwq8u2lhdrD4owkMDSKKg73JjFveMk95/view?usp=drive_link)) and hardcode the location in inference_MT5_gec.py file.
