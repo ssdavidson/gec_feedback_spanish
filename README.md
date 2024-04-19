@@ -7,7 +7,7 @@ Currently configured for Spanish feedback generation. The following should be ch
 * GEC model used (current model is MT5 fine-tuned on COWS-L2H GEC data)
 * Errant and Spacy settings
 * Target tagset for prioritizing feedback
-* Feedback templates if the current versions do not omit desired target errors.
+* Feedback templates if the current versions do not include desired target errors.
 
 ## Installation
 
