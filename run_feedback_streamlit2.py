@@ -20,11 +20,23 @@ def main():
     level = st.selectbox("Select your course level", ["Beginner", "Intermediate", "Advanced"])
     user_text = st.text_area("Write your essay in Spanish", height=300)
     
-    st.write(f'You wrote {len(user_text)} characters.')
+    st.write(f'You wrote {len(user_text.split(' '))} words.')
     
-    submit = st.button('Submit essay')
-    
-    feedback, errors_to_present = input_and_feedback(user_text, level, l1)
+    if 'previous_submission' in st.session_state:
+        resubmit = st.button('Re-submit essay')
+        submit = True
+        feedback, errors_to_present = input_and_feedback(user_text, level, l1)
+        num_errors = len(errors_to_present)
+        if resubmit:
+            for i in range(1, num_errors + 1):
+                if f'error_form_{i}' in st.session_state:
+                    st.session_state[f'error_form_{i}'] = False
+                    
+            
+    else:
+        submit = st.button('Submit essay')
+        st.session_state['previous_submission'] = True
+        feedback, errors_to_present = input_and_feedback(user_text, level, l1)
     
     num_errors = len(errors_to_present)
 
@@ -39,6 +51,8 @@ def main():
     for i in range(num_errors + 1):
         if f'error_form_{i}' not in st.session_state:
             st.session_state[f'error_form_{i}'] = False
+            st.session_state.pop(f'student_resp_{i}', None)
+            #Keep adding keys to remove here
     
     st.session_state.error_form_0 = True
         
