@@ -14,7 +14,7 @@ def input_and_feedback(user_text, level, l1):
     return feedback, errors_to_present
 
 def main():
-    st.title("Spanish Grammatical Error Feedback App")
+    st.title("CorreGram: Spanish Grammatical Error Feedback App")
     
     l1 = st.selectbox("Select your native language", ["English", "Spanish", "Mandarin Chinese", "Other"])
     level = st.selectbox("Select your course level", ["Beginner", "Intermediate", "Advanced"])
