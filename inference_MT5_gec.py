@@ -6,7 +6,7 @@ torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 USE_L1_LEVEL = False
 
 #load the model
-model_id = '/mnt/data/samdavid/projects/projects/dissertation/training_code/t5_finetune/' + 'cowsl2h_MT5_model'
+model_id = '/home/ec2-user/gec_feedback_spanish/models/' + 'cowsl2h_MT5_model'
 tokenizer = MT5Tokenizer.from_pretrained('google/mt5-base')
 model = MT5ForConditionalGeneration.from_pretrained(model_id).to(torch_device)
 

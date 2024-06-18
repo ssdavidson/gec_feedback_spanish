@@ -14,13 +14,14 @@ def input_and_feedback(user_text, level, l1):
     return feedback, errors_to_present
 
 def main():
-    st.title("Grammatical Error Feedback App")
+    st.title("CorreGram: Spanish Grammatical Error Feedback App")
     
     l1 = st.selectbox("Select your native language", ["English", "Spanish", "Mandarin Chinese", "Other"])
     level = st.selectbox("Select your course level", ["Beginner", "Intermediate", "Advanced"])
     user_text = st.text_area("Write your essay in Spanish", height=300)
     
-    st.write(f'You wrote {len(user_text.split(' '))} words.')
+    num_words = len(user_text.split(' '))
+    st.write(f'You wrote {num_words} words.')
     
     if 'previous_submission' in st.session_state:
         resubmit = st.button('Re-submit essay')
