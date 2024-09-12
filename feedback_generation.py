@@ -22,7 +22,7 @@ from nltk import sent_tokenize
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
 #Remove before publishing
-OPENAI_API_KEY='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'
+OPENAI_API_KEY= #INPUT OPENAI KEY HERE
 
 nlp = spacy.load('es_core_news_md')
 annotator = errant.load('es', nlp)
